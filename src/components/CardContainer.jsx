@@ -1,10 +1,17 @@
 import "./CardContainer.css"
+import recipesArray from '../data/data.json'
+import Card from "./Card";
 
 function CardContainer(){
-    return(
-        <div className="card-container">
+    const recipes = recipesArray;
 
-        </div>
+    return(
+        <ul className="card-container">
+            {recipes.map((recipe, index) => {
+                return <Card recipe={recipe} key={index} />;
+            })}
+
+        </ul>
     );
 }
 
