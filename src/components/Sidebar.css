@@ -2,8 +2,7 @@
     list-style: none;
     background-color: aliceblue;
     color: black;
-    min-width: 200px;
+    min-width: 10rem;
     padding-left: 2rem;
     line-height: 2;
-    height: calc(100vh - 6rem); /*Suponiendo que footer y header son 3rem cada uno*/
 }
