@@ -1,15 +1,25 @@
 import "./Navbar.css";
-import logo from "../img/logo.png"
+import logo from "../img/logo.png";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="navbar">
-        <img src={logo} className="logo" ></img>
-        <h1 className="title">My recipe book</h1>
+      <Link to="/">
+        <img src={logo} className="logo"></img>
+      </Link>
+      <Link to="/">
+        {" "}
+        <p className="title">My recipe book</p>{" "}
+      </Link>
+
       <ul>
-        <li><a href="#">All recipes</a></li>
-        <li><a href="#">Favorite recipes</a></li>
-        <li><a href="#">Create new recipe</a></li>
+        <li>
+          <a href="#">Favorite recipes</a>
+        </li>
+        <li>
+          <a href="#">Create new recipe</a>
+        </li>
       </ul>
     </nav>
   );

@@ -1,12 +1,12 @@
-import "./CardContainer.css"
+import "./HomePage.css"
 import recipesArray from '../data/data.json'
-import Card from "./Card";
+import Card from "../components/Card"
 
-function CardContainer(){
+function HomePage(){
     const recipes = recipesArray;
 
     return(
-        <ul className="card-container">
+        <ul className="recipe-list">
             {recipes.map((recipe, index) => {
                 return <Card recipe={recipe} key={index} />;
             })}
@@ -15,4 +15,4 @@ function CardContainer(){
     );
 }
 
-export default CardContainer;
+export default HomePage;

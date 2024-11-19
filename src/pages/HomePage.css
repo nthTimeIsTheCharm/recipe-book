@@ -1,4 +1,4 @@
-.card-container{
+.recipe-list{
    display: flex;
    flex-wrap: wrap;
    gap: 2rem;
