@@ -1,24 +1,24 @@
 .footer {
-    background-color: #a59ef0;
-    padding: 20px;
+    background-color: #FCD068;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    position: fixed;
     bottom: 0;
-    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    height:80px;
 }
 
 
-.creators {
+#ul-footer {
+    
     flex-direction: column;
     justify-content:flex-end;
     list-style: none;
-    text-align: center;
+    text-align:center;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   
+   margin: 0;
+   padding: 0;
 }
-
 

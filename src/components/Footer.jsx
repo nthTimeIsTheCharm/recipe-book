@@ -3,12 +3,12 @@ import "./Footer.css"
 function Footer () {
     return (
         <footer className="footer">
-        <ul>
+        <ul id="ul-footer">
             <li>ROXANA</li>
             <li>ELENI</li>
             <li>AIRAM</li>
         </ul>
-        <a className="link" href="https://github.com/nthTimeIsTheCharm/recipe-book">Chickpea recipes Github</a>
+        <a className="link" href="https://github.com/nthTimeIsTheCharm/recipe-book">my recipes book</a>
         </footer>
     )
 }
