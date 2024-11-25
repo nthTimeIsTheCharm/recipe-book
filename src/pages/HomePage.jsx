@@ -10,8 +10,8 @@ function HomePage() {
     <ul className="recipe-list">
       {recipes.map((recipe, index) => {
         return (
-            <Link to={"/recipe/" + recipe.id}>
-            <Card recipe={recipe} key={index} />
+          <Link to={"/recipe/" + recipe.id} key={index}>
+            <Card recipe={recipe} />
           </Link>
         );
       })}
