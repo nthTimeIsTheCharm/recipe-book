@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
   const [image, setImage] = useState("");
@@ -15,22 +15,37 @@ const Form = () => {
   const handleIngredients = (e) => setIngredients(e.target.value);
   const handleInstrunctions = (e) => setInstructions(e.target.value);
 
+  function createRandomId() {
+    const randomId = Math.floor(Math.random() * 99999) + "a";
+    return randomId;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newRecipe = { id, name, calories, image, servings, ingredients, instructions };
 
-    const newArray = [...recipesArray, newRecipe]
+    const newRecipe = {
+      id: createRandomId(),
+      name,
+      calories,
+      image,
+      servings,
+      ingredients,
+      instructions,
+    };
     
+    props.setRecipes([...props.recipes, newRecipe]);
 
-}
-
-
-
-    
-
+    setName("");
+    setCalories("");
+    setImage("");
+    setServings(1);
+    setIngredients("");
+    setInstructions("");
+  }
+  
   return (
     <>
-      <form /* onSubmit={handleSubmit} */>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name"> Recipe name</label>
         <input
           id="name"
@@ -48,31 +63,25 @@ const Form = () => {
           name="calories"
           type="text"
           placeholder="calories"
-        >
-        
-        </input>
+        ></input>
         <label htmlFor="image"> Image url</label>
-         <input
+        <input
           id="image"
           value={image}
           onChange={handleImage}
           name="image"
           type="text"
           placeholder="image url"
-        >
-
-        </input>
+        ></input>
         <label htmlFor="servings"> Servings</label>
         <input
-
           id="servings"
           value={servings}
           onChange={handleServings}
           name="servings"
           type="text"
           placeholder="1"
-        >
-        </input>
+        ></input>
         <label htmlFor="ingredients">Ingredients</label>
         <input
           id="ingredients"
@@ -81,9 +90,7 @@ const Form = () => {
           name="ingredients"
           type="text"
           placeholder="ingredients"
-        >
-
-        </input>
+        ></input>
         <label htmlFor="instructions">Instructions</label>
         <input
           id="instructions"
@@ -92,10 +99,8 @@ const Form = () => {
           name="instructions"
           type="text"
           placeholder="instructions"
-        >
-        </input>
-        <button type="submit" >Add recipe</button>
-         
+        ></input>
+        <button type="submit">Add recipe</button>
       </form>
     </>
   );
