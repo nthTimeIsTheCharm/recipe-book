@@ -1,0 +1,76 @@
+.itemPage-recipe{
+    margin-bottom: 2rem;
+}
+.itemPage-info{
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    max-width: 40rem;
+    
+    h2{
+        margin-top: 1rem;
+    }
+}
+
+.itemPage-details{
+    padding: 1rem 2rem;
+    border-left: 1px solid grey;
+}
+
+.itemPage-ingredients,
+.itemPage-instructions{
+    padding: 0 2rem;
+}
+.itemPage-details{
+   width: 50%;
+   display: inline-block;
+}
+
+.itemPage-title {
+    font-size: 2.5rem;
+}
+
+.itemPage-imageWrapper{
+    width: 50%;
+    min-width: 20rem;
+    margin-right: 2rem;
+}
+
+.itemPage-image{
+    width: 100%;
+}
+
+h2.itemPage-calories,
+h2.itemPage-servings{
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+h2.itemPage-ingredients,
+h2.itemPage-instructions{
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .itemPage-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .itemPage-imageWrapper {
+        margin-right: 0;
+    }
+
+    .itemPage-details{
+        width: 100%;
+        text-align: center;
+        border-left: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .itemPage-info {
+        max-width: 100%;
+    }
+}
