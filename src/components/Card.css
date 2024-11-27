@@ -24,3 +24,7 @@
     border: 1px solid blue;
     align-items: center;
 }
+
+.delete-button{
+    width: 3rem;
+}

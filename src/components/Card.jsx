@@ -1,11 +1,13 @@
 import "./Card.css";
 import binIcon from "../assets/delete.svg"
+import { Link } from "react-router-dom";
 
 function Card(props) {
 
 
   return (
-    <li className="card">
+    <li className="card"> 
+<Link to={"/recipe/" + props.recipe.id}>
       <div className="image-container">
         <img
           className="food-image"
@@ -17,8 +19,9 @@ function Card(props) {
         <h2>{props.recipe.name}</h2>
         <p>{props.recipe.calories} calories</p>
         <p>{props.recipe.servings} serving</p>
-        <img src={binIcon} alt="delete" onClick = {()=> props.deleteCard(props.recipe.id) } />
       </div>
+      </Link>
+      <img className="delete-button" src={binIcon} alt="delete" onClick = {()=> props.deleteRecipe(props.recipe.id) } />
     </li>
   );
 }

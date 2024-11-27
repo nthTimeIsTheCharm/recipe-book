@@ -14,7 +14,7 @@ function App() {
 
     const [recipes, setRecipes] = useState(recipesArray);
   
-    function deleteCard(id) {
+    function deleteRecipe(id) {
       const newArray = [...recipes];
       
       newArray.map((recipe) => {
@@ -25,7 +25,9 @@ function App() {
           setRecipes(newArray);
         }
       });
+    
     }
+
   
   return (
     <>
@@ -33,7 +35,7 @@ function App() {
       <main>
         <Sidebar />
         <Routes>
-        <Route path="/" element={<HomePage recipes = {recipes} setRecipes={setRecipes} deleteCard = {deleteCard} />} />
+        <Route path="/" element={<HomePage recipes = {recipes} setRecipes={setRecipes} deleteRecipe= {deleteRecipe} />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/recipe/:recipeId" element={<ItemPage recipes={recipes}/>} />
         <Route path="*" element={<NotFoundPage />} />

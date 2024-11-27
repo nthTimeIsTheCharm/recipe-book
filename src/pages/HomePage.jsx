@@ -12,9 +12,9 @@ function HomePage(props) {
     <ul className="recipe-list">
       {props.recipes.map((recipe, index) => {
         return (
-          <Link to={"/recipe/" + recipe.id} key={index}>
-            <Card recipe={recipe} deleteCard={props.deleteCard} />
-          </Link>
+         
+            <Card key={index} recipe={recipe} deleteRecipe={props.deleteRecipe} />
+           
         );
       })}
     </ul>
