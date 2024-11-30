@@ -1,23 +1,30 @@
+label{
+    font-weight: bold;
+}
+
 fieldset {
-    display: flex;
     border: none;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
 label {
     margin-right: 0.3rem;
 }
 
-.instructionsField,
-.ingredientsField {
-    display: flex;
-    flex-direction: column;
+.instructions input{
+    width: 25rem;
+}
+
+.instructions,
+.ingredients {
     width: 30rem;
-    label{
-        margin-bottom: 0.2rem;
-    }
+    label,
     input{
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.2rem; 
+    }
+
+    h2{
+        margin-bottom: 0.5rem;
     }
 
 }
@@ -31,6 +38,3 @@ form {
     }
 }
 
-label{
-    font-weight: bold;
-}

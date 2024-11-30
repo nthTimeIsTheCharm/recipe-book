@@ -1,26 +1,34 @@
 import { useState } from "react";
 import "./Form.css";
-import Fieldset from "./InputField";
+import Fieldset from "./Fieldset";
+import Field from "./Field";
 
 const Form = (props) => {
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
   const [image, setImage] = useState("");
   const [servings, setServings] = useState(1);
-  const [ingredients, setIngredients] = useState([]);
-  const [instructions, setInstructions] = useState("");
+  const [ingredients, setIngredients] = useState(["", "", ""]);
+  const [instructions, setInstructions] = useState(["", ""]);
 
   const handleName = (e) => setName(e.target.value);
   const handleCalories = (e) => setCalories(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
   const handleServings = (e) => setServings(e.target.value);
-  const handleIngredients = (e) => {
+  const handleIngredients = (e, index) => {
+    console.log(index);
+    console.log(e.target.value);
     const ingredientsCopy = [...ingredients];
-    ingredients[0] = e.target.value;
+    ingredientsCopy[index] = e.target.value;
     setIngredients(ingredientsCopy);
-
   };
-  const handleInstructions = (e) => setInstructions(e.target.value);
+  const handleInstructions = (e, index) => {
+    console.log(index);
+    console.log(e.target.value);
+    const instructionsCopy = [...instructions];
+    instructionsCopy[index] = e.target.value;
+    setInstructions(instructionsCopy);
+  };
 
   function createRandomId() {
     const randomId = Math.floor(Math.random() * 99999) + "a";
@@ -39,7 +47,7 @@ const Form = (props) => {
       ingredients,
       instructions,
     };
-    
+
     props.setRecipes([newRecipe, ...props.recipes]);
 
     setName("");
@@ -47,9 +55,9 @@ const Form = (props) => {
     setImage("");
     setServings(1);
     setIngredients([]);
-    setInstructions("");
-  }
-  
+    setInstructions([]);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -59,7 +67,7 @@ const Form = (props) => {
           label="Recipe name"
           type="text"
           placeholderText="Recipe name"
-          value= {name}
+          value={name}
           onChangeFunc={handleName}
         />
         <Fieldset
@@ -68,7 +76,7 @@ const Form = (props) => {
           label="Calories"
           type="text"
           placeholderText="Total calories"
-          value= {calories}
+          value={calories}
           onChangeFunc={handleCalories}
         />
         <Fieldset
@@ -77,54 +85,52 @@ const Form = (props) => {
           label="Recipe image"
           type="text"
           placeholderText="Recipe image"
-          value= {image}
+          value={image}
           onChangeFunc={handleImage}
         />
         <Fieldset
           cssClass="servings"
           id="servings"
-          label="servings"
+          label="Servings"
           type="number"
           placeholderText="servings"
-          value= {servings}
+          value={servings}
           onChangeFunc={handleServings}
         />
-        <Fieldset
-          cssClass="ingredients"
-          id="ingredients"
-          label="Ingredients"
-          type="text"
-          placeholderText="Type ingredient 1"
-          value= {ingredients[0]}
-          onChangeFunc={handleIngredients}
-        />
+        <fieldset className="ingredients">
+          <h2>Ingredients</h2>
+          {ingredients.map((ingredient, index) => {
+            return (
+              <Field
+                key={index}
+                cssClass="ingredients"
+                id="ingredients"
+                label={`Ingredient ${index + 1}`}
+                type="text"
+                placeholderText={`Type ingredient ${index + 1}`}
+                value={ingredient}
+                onChangeFunc={(e) => handleIngredients(e, index)}
+              />
+            );
+          })}
+        </fieldset>
 
-        <fieldset className="instructionsField">
-          <label htmlFor="instructions">Instructions</label>
-          <input
-            id="instructions[0]"
-            value={instructions}
-            onChange={handleInstructions}
-            name="instructions"
-            type="text"
-            placeholder="Type step 1"
-          ></input>
-          <input
-            id="instructions[1]"
-            value={instructions}
-            onChange={handleInstructions}
-            name="instructions"
-            type="text"
-            placeholder="Type step 2"
-          ></input>
-          <input
-            id="instructions[2]"
-            value={instructions}
-            onChange={handleInstructions}
-            name="instructions"
-            type="text"
-            placeholder="Type step 3"
-          ></input>
+        <fieldset className="instructions">
+          <h2>Instructions</h2>
+          {instructions.map((instruction, index) => {
+            return (
+              <Field
+                key={index}
+                cssClass="instructions"
+                id="instructions"
+                label={`Step ${index + 1}`}
+                type="text"
+                placeholderText={`Type instruction ${index + 1}`}
+                value={instruction}
+                onChangeFunc={(e) => handleInstructions(e, index)}
+              />
+            );
+          })}
         </fieldset>
         <button type="submit">Add recipe</button>
       </form>

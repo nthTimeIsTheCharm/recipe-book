@@ -1,7 +1,12 @@
-function Fieldset({cssClass, id, label, type, placeholderText, value, onChangeFunc}) {
-
-/*   const count = 1; */
-
+function Fieldset({
+  cssClass,
+  id,
+  label,
+  type,
+  placeholderText,
+  value,
+  onChangeFunc,
+}) {
   return (
     <fieldset className={cssClass}>
       <label htmlFor={id}>{label}</label>
