@@ -143,7 +143,11 @@ const Form = (props) => {
                 />
               );
             })}
-            <button type="button" onClick={()=> addField(ingredients, setIngredients)}>
+            <button
+              className="add-field"
+              type="button"
+              onClick={() => addField(ingredients, setIngredients)}
+            >
               Add another ingredient
             </button>
           </fieldset>
@@ -164,12 +168,26 @@ const Form = (props) => {
                 />
               );
             })}
-            <button type = "button" onClick={()=> addField(instructions, setInstructions)}>Add another step</button>
+            <button
+              className="add-field"
+              type="button"
+              onClick={() => addField(instructions, setInstructions)}
+            >
+              Add another step
+            </button>
           </fieldset>
           <button className="submit" type="submit">
             Add recipe
           </button>
-          {/* <button className="hide-form" onClick={()=>{setFormOpen(true)}}>Cancel</button> */}
+          <button
+            type="button"
+            className="hide-form"
+            onClick={() => {
+              setFormOpen(false);
+            }}
+          >
+            Cancel
+          </button>
         </form>
       )}
     </>
