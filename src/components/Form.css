@@ -1,5 +1,6 @@
-label{
+label {
     font-weight: bold;
+    margin-right: 0.3rem;
 }
 
 fieldset {
@@ -7,23 +8,20 @@ fieldset {
     margin-bottom: 0.6rem;
 }
 
-label {
-    margin-right: 0.3rem;
-}
-
-.instructions input{
+.instructions input {
     width: 25rem;
 }
 
 .instructions,
 .ingredients {
     width: 30rem;
+
     label,
-    input{
-        margin-bottom: 0.2rem; 
+    input {
+        margin-bottom: 0.2rem;
     }
 
-    h2{
+    h2 {
         margin-bottom: 0.5rem;
     }
 
@@ -33,8 +31,28 @@ form {
     margin-left: 5rem;
     padding-top: 2rem;
 
-    input{
+    input {
         padding: 0.2rem;
     }
 }
 
+.recipe-added {
+    background-color: rgb(204, 241, 207);
+    text-align: center;
+    padding: 0.3rem 0;
+    font-size: 1.2rem;
+}
+
+.show-form,
+.submit {
+    all: unset;
+    background-color: rgb(82, 98, 242);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+}
+
+.show-form {
+    display: block;
+    margin: 1rem auto;
+}

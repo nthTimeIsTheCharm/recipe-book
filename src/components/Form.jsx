@@ -4,6 +4,11 @@ import Fieldset from "./Fieldset";
 import Field from "./Field";
 
 const Form = (props) => {
+  //State variables
+  const [recipeAdded, setRecipeAdded] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+
+  //Form state variables
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
   const [image, setImage] = useState("");
@@ -11,6 +16,7 @@ const Form = (props) => {
   const [ingredients, setIngredients] = useState(["", "", ""]);
   const [instructions, setInstructions] = useState(["", ""]);
 
+  //Form state handlers
   const handleName = (e) => setName(e.target.value);
   const handleCalories = (e) => setCalories(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
@@ -31,7 +37,7 @@ const Form = (props) => {
   };
 
   function createRandomId() {
-    const randomId = Math.floor(Math.random() * 99999) + "a";
+    const randomId = Math.floor(Math.random() * 9999999) + "a";
     return randomId;
   }
 
@@ -54,86 +60,118 @@ const Form = (props) => {
     setCalories("");
     setImage("");
     setServings(1);
-    setIngredients([]);
-    setInstructions([]);
+    setIngredients(["", "", ""]);
+    setInstructions(["", ""]);
+
+    setRecipeAdded(true);
+    setTimeout(()=>{
+      setRecipeAdded(false);
+      setFormOpen(false);
+    },3000)
   };
+
+  const addField = (stateVar, setStateFunction) => {
+    setStateFunction([...stateVar, ""]);
+
+  }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <Fieldset
-          cssClass="name"
-          id="name"
-          label="Recipe name"
-          type="text"
-          placeholderText="Recipe name"
-          value={name}
-          onChangeFunc={handleName}
-        />
-        <Fieldset
-          cssClass="calories"
-          id="calories"
-          label="Calories"
-          type="text"
-          placeholderText="Total calories"
-          value={calories}
-          onChangeFunc={handleCalories}
-        />
-        <Fieldset
-          cssClass="image"
-          id="image"
-          label="Recipe image"
-          type="text"
-          placeholderText="Recipe image"
-          value={image}
-          onChangeFunc={handleImage}
-        />
-        <Fieldset
-          cssClass="servings"
-          id="servings"
-          label="Servings"
-          type="number"
-          placeholderText="servings"
-          value={servings}
-          onChangeFunc={handleServings}
-        />
-        <fieldset className="ingredients">
-          <h2>Ingredients</h2>
-          {ingredients.map((ingredient, index) => {
-            return (
-              <Field
-                key={index}
-                cssClass="ingredients"
-                id="ingredients"
-                label={`Ingredient ${index + 1}`}
-                type="text"
-                placeholderText={`Type ingredient ${index + 1}`}
-                value={ingredient}
-                onChangeFunc={(e) => handleIngredients(e, index)}
-              />
-            );
-          })}
-        </fieldset>
+      {!formOpen && (
+        <button
+          className="show-form"
+          onClick={() => {
+            setFormOpen(true);
+          }}
+        >
+          Add new recipe
+        </button>
+      )}
+      {recipeAdded && <div className="recipe-added"> 🎉 Recipe added! </div>}
+      {formOpen && !recipeAdded && (
+        <form className="add-recipe" onSubmit={handleSubmit}>
+          <h2>Add new recipe</h2>
+          <Fieldset
+            cssClass="name"
+            id="name"
+            label="Recipe name"
+            type="text"
+            placeholderText="Recipe name"
+            value={name}
+            onChangeFunc={handleName}
+          />
+          <Fieldset
+            cssClass="calories"
+            id="calories"
+            label="Calories"
+            type="text"
+            placeholderText="Total calories"
+            value={calories}
+            onChangeFunc={handleCalories}
+          />
+          <Fieldset
+            cssClass="image"
+            id="image"
+            label="Recipe image"
+            type="text"
+            placeholderText="Recipe image"
+            value={image}
+            onChangeFunc={handleImage}
+          />
+          <Fieldset
+            cssClass="servings"
+            id="servings"
+            label="Servings"
+            type="number"
+            placeholderText="servings"
+            value={servings}
+            onChangeFunc={handleServings}
+          />
+          <fieldset className="ingredients">
+            <h3>Ingredients</h3>
+            {ingredients.map((ingredient, index) => {
+              return (
+                <Field
+                  key={index}
+                  cssClass="ingredients"
+                  id="ingredients"
+                  label={`Ingredient ${index + 1}`}
+                  type="text"
+                  placeholderText={`Type ingredient ${index + 1}`}
+                  value={ingredient}
+                  onChangeFunc={(e) => handleIngredients(e, index)}
+                />
+              );
+            })}
+            <button type="button" onClick={()=> addField(ingredients, setIngredients)}>
+              Add another ingredient
+            </button>
+          </fieldset>
 
-        <fieldset className="instructions">
-          <h2>Instructions</h2>
-          {instructions.map((instruction, index) => {
-            return (
-              <Field
-                key={index}
-                cssClass="instructions"
-                id="instructions"
-                label={`Step ${index + 1}`}
-                type="text"
-                placeholderText={`Type instruction ${index + 1}`}
-                value={instruction}
-                onChangeFunc={(e) => handleInstructions(e, index)}
-              />
-            );
-          })}
-        </fieldset>
-        <button type="submit">Add recipe</button>
-      </form>
+          <fieldset className="instructions">
+            <h3>Instructions</h3>
+            {instructions.map((instruction, index) => {
+              return (
+                <Field
+                  key={index}
+                  cssClass="instructions"
+                  id="instructions"
+                  label={`Step ${index + 1}`}
+                  type="text"
+                  placeholderText={`Type instruction ${index + 1}`}
+                  value={instruction}
+                  onChangeFunc={(e) => handleInstructions(e, index)}
+                />
+              );
+            })}
+            <button type = "button" onClick={()=> addField(instructions, setInstructions)}>Add another step</button>
+          </fieldset>
+          <button className="submit" type="submit">
+            Add recipe
+          </button>
+          {/* <button className="hide-form" onClick={()=>{setFormOpen(true)}}>Cancel</button> */}
+        </form>
+      )}
     </>
   );
 };
