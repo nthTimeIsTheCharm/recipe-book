@@ -1,0 +1,36 @@
+fieldset {
+    display: flex;
+    border: none;
+    margin-bottom: 0.5rem;
+}
+
+label {
+    margin-right: 0.3rem;
+}
+
+.instructionsField,
+.ingredientsField {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    label{
+        margin-bottom: 0.2rem;
+    }
+    input{
+        margin-bottom: 0.2rem;
+    }
+
+}
+
+form {
+    margin-left: 5rem;
+    padding-top: 2rem;
+
+    input{
+        padding: 0.2rem;
+    }
+}
+
+label{
+    font-weight: bold;
+}

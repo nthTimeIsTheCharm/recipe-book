@@ -1,19 +1,26 @@
 import { useState } from "react";
+import "./Form.css";
+import Fieldset from "./InputField";
 
 const Form = (props) => {
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
   const [image, setImage] = useState("");
   const [servings, setServings] = useState(1);
-  const [ingredients, setIngredients] = useState("");
+  const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState("");
 
   const handleName = (e) => setName(e.target.value);
   const handleCalories = (e) => setCalories(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
   const handleServings = (e) => setServings(e.target.value);
-  const handleIngredients = (e) => setIngredients(e.target.value);
-  const handleInstrunctions = (e) => setInstructions(e.target.value);
+  const handleIngredients = (e) => {
+    const ingredientsCopy = [...ingredients];
+    ingredients[0] = e.target.value;
+    setIngredients(ingredientsCopy);
+
+  };
+  const handleInstructions = (e) => setInstructions(e.target.value);
 
   function createRandomId() {
     const randomId = Math.floor(Math.random() * 99999) + "a";
@@ -33,73 +40,92 @@ const Form = (props) => {
       instructions,
     };
     
-    props.setRecipes([...props.recipes, newRecipe]);
+    props.setRecipes([newRecipe, ...props.recipes]);
 
     setName("");
     setCalories("");
     setImage("");
     setServings(1);
-    setIngredients("");
+    setIngredients([]);
     setInstructions("");
   }
   
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name"> Recipe name</label>
-        <input
+        <Fieldset
+          cssClass="name"
           id="name"
-          value={name}
-          onChange={handleName}
-          name="name"
+          label="Recipe name"
           type="text"
-          placeholder="recipe name"
-        ></input>
-        <label htmlFor="calories">Calories</label>
-        <input
+          placeholderText="Recipe name"
+          value= {name}
+          onChangeFunc={handleName}
+        />
+        <Fieldset
+          cssClass="calories"
           id="calories"
-          value={calories}
-          onChange={handleCalories}
-          name="calories"
+          label="Calories"
           type="text"
-          placeholder="calories"
-        ></input>
-        <label htmlFor="image"> Image url</label>
-        <input
+          placeholderText="Total calories"
+          value= {calories}
+          onChangeFunc={handleCalories}
+        />
+        <Fieldset
+          cssClass="image"
           id="image"
-          value={image}
-          onChange={handleImage}
-          name="image"
+          label="Recipe image"
           type="text"
-          placeholder="image url"
-        ></input>
-        <label htmlFor="servings"> Servings</label>
-        <input
+          placeholderText="Recipe image"
+          value= {image}
+          onChangeFunc={handleImage}
+        />
+        <Fieldset
+          cssClass="servings"
           id="servings"
-          value={servings}
-          onChange={handleServings}
-          name="servings"
-          type="text"
-          placeholder="1"
-        ></input>
-        <label htmlFor="ingredients">Ingredients</label>
-        <input
+          label="servings"
+          type="number"
+          placeholderText="servings"
+          value= {servings}
+          onChangeFunc={handleServings}
+        />
+        <Fieldset
+          cssClass="ingredients"
           id="ingredients"
-          value={ingredients}
-          onChange={handleIngredients}
-          name="ingredients"
+          label="Ingredients"
           type="text"
-          placeholder="ingredients"
-        ></input>
-        <label htmlFor="instructions">Instructions</label>
-        <input
-          id="instructions"
-          value={instructions}
-          onChange={handleInstrunctions}
-          name="instructions"
-          type="text"
-          placeholder="instructions"
-        ></input>
+          placeholderText="Type ingredient 1"
+          value= {ingredients[0]}
+          onChangeFunc={handleIngredients}
+        />
+
+        <fieldset className="instructionsField">
+          <label htmlFor="instructions">Instructions</label>
+          <input
+            id="instructions[0]"
+            value={instructions}
+            onChange={handleInstructions}
+            name="instructions"
+            type="text"
+            placeholder="Type step 1"
+          ></input>
+          <input
+            id="instructions[1]"
+            value={instructions}
+            onChange={handleInstructions}
+            name="instructions"
+            type="text"
+            placeholder="Type step 2"
+          ></input>
+          <input
+            id="instructions[2]"
+            value={instructions}
+            onChange={handleInstructions}
+            name="instructions"
+            type="text"
+            placeholder="Type step 3"
+          ></input>
+        </fieldset>
         <button type="submit">Add recipe</button>
       </form>
     </>

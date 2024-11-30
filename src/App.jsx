@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from "./components/Navbar" 
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer' 
-import HomePage from './pages/Homepage'
+import HomePage from './pages/HomePage'
 import { Routes, Route } from "react-router-dom";
 import AboutPage from './pages/AboutPage';
 import ItemPage from './pages/ItemPage'
@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <div className='page-container'>
         <Sidebar />
         <Routes>
         <Route path="/" element={<HomePage recipes = {recipes} setRecipes={setRecipes} deleteRecipe= {deleteRecipe} />} />
@@ -40,7 +40,7 @@ function App() {
         <Route path="/recipe/:recipeId" element={<ItemPage recipes={recipes}/>} />
         <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </main>
+      </div>
       <Footer />
     </>
   );
