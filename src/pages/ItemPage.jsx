@@ -1,9 +1,16 @@
 import { useParams } from "react-router-dom";
 import "./ItemPage.css";
+import NotFoundPage from "./NotFoundPage";
 
 function ItemPage(props) {
   const { recipeId } = useParams();
   const foundRecipe = props.recipes.find((recipe) => recipe.id === recipeId);
+  console.log("recipeid", recipeId);
+  
+
+  if (!foundRecipe) {
+    return <NotFoundPage />;
+  }
 
   return (
     <div className="itemPage-recipe">
