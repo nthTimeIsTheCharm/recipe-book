@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import AboutPage from './pages/AboutPage';
 import ItemPage from './pages/ItemPage'
 import NotFoundPage from './pages/NotFoundPage';
-import recipesArray from "./data/data2.json";
+import recipesArray from "./data/data3.json";
 import { useState } from "react";
 
 function App() {

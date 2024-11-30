@@ -28,9 +28,19 @@ function ItemPage(props) {
       </div>
 
       <h2 className="itemPage-ingredients">Ingredients</h2>
-      <p className="itemPage-ingredients">{foundRecipe.ingredients}</p>
+      <ul>
+        {foundRecipe.ingredients.map((ingredient, index)=> {
+          return (<li key={index}>{ingredient}</li>)
+        })}
+      </ul>
+
+      
       <h2 className="itemPage-instructions">Instructions</h2>
-      <p className="itemPage-instructions">{foundRecipe.instructions}</p>
+      <ol>
+        {foundRecipe.instructions.map((instruction, index)=> {
+          return (<li key={index}>{instruction} </li>)
+        })}
+      </ol>
     </div>
   );
 }
