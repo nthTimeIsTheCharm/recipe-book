@@ -15,7 +15,7 @@ function Card(props) {
           />
         </div>
         <div className="text-container">
-          <h2>{props.recipe.name}</h2>
+          <h2>{props.recipe.name} <span className="icon">{props.recipe.isCompleted ? "✅" : "❌"} </span></h2>
           <p>
             {props.recipe.calories} calories - {props.recipe.servings} serving
           </p>
