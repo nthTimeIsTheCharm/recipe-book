@@ -28,7 +28,8 @@ function ItemPage(props) {
       </div>
 
       <h2 className="itemPage-ingredients">Ingredients</h2>
-      <ul>
+
+      <ul className="ul-list">
         {foundRecipe.ingredients.map((ingredient, index)=> {
           return (<li key={index}>{ingredient}</li>)
         })}
@@ -36,7 +37,8 @@ function ItemPage(props) {
 
       
       <h2 className="itemPage-instructions">Instructions</h2>
-      <ol>
+      
+      <ol className="ol-list">
         {foundRecipe.instructions.map((instruction, index)=> {
           return (<li key={index}>{instruction} </li>)
         })}

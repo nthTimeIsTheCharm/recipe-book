@@ -74,3 +74,15 @@ h2.itemPage-instructions{
         max-width: 100%;
     }
 }
+
+.ul-list{
+    padding-left: 150px;
+    font-size:larger;
+
+}
+
+
+.ol-list{
+    padding-left: 150px;
+    font-size: larger;
+}
