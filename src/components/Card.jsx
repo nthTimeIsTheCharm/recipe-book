@@ -1,7 +1,9 @@
 import "./Card.css";
 import binIcon from "../assets/delete.svg";
-import heartIcon from "../assets/heart.svg"; 
+import heartIcon from "../assets/heart.svg";
+import heartIconFilled from "../assets/heart-filled.svg";
 import { Link } from "react-router-dom";
+import { deleteRecipe, toggleFavoriteRecipe } from "./helperFunctions.js";
 
 function Card(props) {
   return (
@@ -15,23 +17,43 @@ function Card(props) {
           />
         </div>
         <div className="text-container">
-          <h2>{props.recipe.name} <span className="icon">{props.recipe.isCompleted ? "✅" : "❌"} </span></h2>
+          <h2>
+            {props.recipe.name}{" "}
+            <span className="icon">
+              {props.recipe.isCompleted ? "✅" : "❌"}{" "}
+            </span>
+          </h2>
           <p>
             {props.recipe.calories} calories - {props.recipe.servings} serving
           </p>
         </div>
       </Link>
       <div className="button-container">
+      { !props.recipe.isFavorite &&
         <img
           className="delete-button"
           src={binIcon}
           alt="delete"
-          onClick={() => props.deleteRecipe(props.recipe.id)}
+          onClick={() => {
+            {/*const recipesArray = [...props.recipes];
+            console.log("recipesArray ", recipesArray);
+            const newArray = deleteRecipe(props.recipe.id, recipesArray); //aquí...
+            console.log("newArray ", newArray);
+            props.setRecipes(newArray);*/}
+            
+            deleteRecipe(props.recipe.id, [...props.recipes], props.setRecipes)
+          }}
         />
+      }
         <img
-          className="favourite-button"
-          src={heartIcon}
-          alt="save as favourite"
+          className="favorite-button"
+          src={props.recipe.isFavorite ? heartIconFilled : heartIcon}
+          alt="save as favorite"
+          onClick={()=>{toggleFavoriteRecipe(
+            props.recipe.id,
+            [...props.recipes],
+            props.setRecipes
+          );}}
         />
       </div>
     </li>
