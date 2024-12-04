@@ -29,31 +29,28 @@ function Card(props) {
         </div>
       </Link>
       <div className="button-container">
-      { !props.recipe.isFavorite &&
-        <img
-          className="delete-button"
-          src={binIcon}
-          alt="delete"
-          onClick={() => {
-            {/*const recipesArray = [...props.recipes];
-            console.log("recipesArray ", recipesArray);
-            const newArray = deleteRecipe(props.recipe.id, recipesArray); //aquí...
-            console.log("newArray ", newArray);
-            props.setRecipes(newArray);*/}
-            
-            deleteRecipe(props.recipe.id, [...props.recipes], props.setRecipes)
-          }}
-        />
-      }
+        {!props.recipe.isFavorite && (
+          <img
+            className="delete-button"
+            src={binIcon}
+            alt="delete"
+            onClick={() => {
+              const newArray = deleteRecipe(props.recipe.id, props.recipes);
+              props.setRecipes(newArray);
+            }}
+          />
+        )}
         <img
           className="favorite-button"
           src={props.recipe.isFavorite ? heartIconFilled : heartIcon}
           alt="save as favorite"
-          onClick={()=>{toggleFavoriteRecipe(
-            props.recipe.id,
-            [...props.recipes],
-            props.setRecipes
-          );}}
+          onClick={() => {
+            toggleFavoriteRecipe(
+              props.recipe.id,
+              [...props.recipes],
+              props.setRecipes
+            );
+          }}
         />
       </div>
     </li>

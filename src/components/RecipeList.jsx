@@ -4,7 +4,6 @@ import Card from './Card'
 function RecipeList({recipes, setRecipes, condition}){
 
   const recipesAvailable = recipes.length;
-  console.log("length....", recipes.length);
   let counter = 0;
   
   return (
@@ -13,7 +12,6 @@ function RecipeList({recipes, setRecipes, condition}){
         {recipes.map((recipe, index) => {
           if (recipe[condition]) {
             counter++;
-            console.log("counter...", counter);
             return (
               <Card
                 key={index}

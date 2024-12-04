@@ -22,15 +22,11 @@ const Form = (props) => {
   const handleImage = (e) => setImage(e.target.value);
   const handleServings = (e) => setServings(e.target.value);
   const handleIngredients = (e, index) => {
-    console.log(index);
-    console.log(e.target.value);
     const ingredientsCopy = [...ingredients];
     ingredientsCopy[index] = e.target.value;
     setIngredients(ingredientsCopy);
   };
   const handleInstructions = (e, index) => {
-    console.log(index);
-    console.log(e.target.value);
     const instructionsCopy = [...instructions];
     instructionsCopy[index] = e.target.value;
     setInstructions(instructionsCopy);
