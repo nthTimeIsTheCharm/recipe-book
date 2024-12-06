@@ -13,6 +13,7 @@ const Form = (props) => {
   const [calories, setCalories] = useState("");
   const [image, setImage] = useState("");
   const [servings, setServings] = useState(1);
+  const [isVegetarian, setIsVegetarian] = useState(false);
   const [ingredients, setIngredients] = useState(["", "", ""]);
   const [instructions, setInstructions] = useState(["", ""]);
 
@@ -21,6 +22,7 @@ const Form = (props) => {
   const handleCalories = (e) => setCalories(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
   const handleServings = (e) => setServings(e.target.value);
+  const handleIsVegetarian = () => setIsVegetarian((current) => !current);
   const handleIngredients = (e, index) => {
     const ingredientsCopy = [...ingredients];
     ingredientsCopy[index] = e.target.value;
@@ -46,6 +48,7 @@ const Form = (props) => {
       calories,
       image,
       servings,
+      isVegetarian,
       ingredients,
       instructions,
     };
@@ -122,6 +125,15 @@ const Form = (props) => {
             placeholderText="servings"
             value={servings}
             onChangeFunc={handleServings}
+          />
+          <Fieldset
+            cssClass="isVegetarian"
+            id="isVegetarian"
+            label="isVegetarian"
+            type="checkbox"
+            isChecked={isVegetarian}
+            value={isVegetarian}
+            onChangeFunc={handleIsVegetarian}
           />
           <fieldset className="ingredients">
             <h3>Ingredients</h3>

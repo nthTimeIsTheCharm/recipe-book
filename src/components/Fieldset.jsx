@@ -3,8 +3,9 @@ function Fieldset({
   id,
   label,
   type,
-  placeholderText,
+  placeholderText = null,
   value,
+  isChecked = null,
   onChangeFunc,
 }) {
   return (
@@ -16,6 +17,7 @@ function Fieldset({
         value={value}
         name={value}
         placeholder={placeholderText}
+        checked={isChecked}
         onChange={onChangeFunc}
       ></input>
     </fieldset>
