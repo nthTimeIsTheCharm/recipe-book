@@ -1,11 +1,14 @@
+import chefImg from '../img/cheff.png'
+import './NotFoundPage.css'
+
 function NotFoundPage() {
-    return (
-        <>
-        <h1>Not Found Error 404</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi officia similique consequuntur minus omnis sunt officiis facilis molestiae laboriosam ab, nihil modi non reiciendis, rerum velit voluptatem voluptatibus hic eligendi.</p>
-        </>
-    )
-    
+  return (
+    <div className='not-found-container' >
+      <h1 className='not-found-title'>404</h1>
+      <p className='Oops' >Oops... page not found!</p>
+      <img className="chef" src={chefImg} height={200} width={200}/>
+    </div>
+  );
 }
 
 export default NotFoundPage;

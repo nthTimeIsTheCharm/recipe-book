@@ -17,9 +17,6 @@ function Navbar() {
         <li>
           <a href="#">Favorite recipes</a>
         </li>
-        <li>
-          <a href="#">Create new recipe</a>
-        </li>
       </ul>
     </nav>
   );
