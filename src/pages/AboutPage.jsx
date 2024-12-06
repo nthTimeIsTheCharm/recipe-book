@@ -41,7 +41,7 @@ function AboutPage() {
 
           <p className="paragraph">
             &nbsp; Soy una chica de Grecia, me gusta leer, quedar con amigos y viajar.
-             Mi receta favorita son las lentejas a la griega.           
+             No cocino muy bien pero mi receta favorita son las lentejas a la griega.           
           </p>
         </div>
       </div>

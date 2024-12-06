@@ -14,9 +14,11 @@ function Navbar() {
       </Link>
 
       <ul>
+      <Link to="/favorite-recipes">
         <li>
-          <a href="#">Favorite recipes</a>
+          Favorite recipes
         </li>
+      </Link>
       </ul>
     </nav>
   );
