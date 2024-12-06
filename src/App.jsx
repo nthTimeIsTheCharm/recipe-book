@@ -6,9 +6,10 @@ import HomePage from './pages/HomePage'
 import { Routes, Route } from "react-router-dom";
 import AboutPage from './pages/AboutPage';
 import ItemPage from './pages/ItemPage'
+import EditItemPage from './pages/EditItemPage'
 import FavoritesPage from './pages/FavoritesPage'
 import NotFoundPage from './pages/NotFoundPage';
-import recipesArray from "./data/data3.json";
+import recipesArray from "./data/data4.json";
 import { useState } from "react";
 
 function App() {
@@ -37,7 +38,14 @@ function App() {
             path="/recipe/:recipeId"
             element={<ItemPage recipes={recipes} />}
           />
+          <Route
+            path="/recipe/edit/:recipeId"
+            element={<EditItemPage recipes={recipes} />}
+          />
           <Route path="*" element={<NotFoundPage />} />
+
+
+          
         </Routes>
       </div>
       <Footer />

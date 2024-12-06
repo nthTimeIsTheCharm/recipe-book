@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import "./ItemPage.css";
 import NotFoundPage from "./NotFoundPage";
+import { Link } from "react-router-dom";
+import EditIcon from '../assets/editIcon.svg'
 
 function ItemPage(props) {
   const { recipeId } = useParams();
@@ -19,9 +21,11 @@ function ItemPage(props) {
         </div>
 
         <div className="itemPage-details">
-        
+        <Link to={`/recipe/edit/${recipeId}`}>
+        <img src={EditIcon} />
+      </Link>
           <h1 className="itemPage-title">{foundRecipe.name}</h1>
-
+        
           <div className="calorias">
           <h2 className="itemPage-calories">Calories</h2>
           <p className="itemPage-calories">{foundRecipe.calories}</p>
@@ -52,7 +56,9 @@ function ItemPage(props) {
               <li key={index}>{instruction}</li>
             ))}
           </ol>
+          
         </div>
+      
       </div>
     </div>
   );
