@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import { Routes, Route } from "react-router-dom";
 import AboutPage from './pages/AboutPage';
 import ItemPage from './pages/ItemPage'
+import FavoritesPage from './pages/FavoritesPage'
 import NotFoundPage from './pages/NotFoundPage';
 import recipesArray from "./data/data3.json";
 import { useState } from "react";
@@ -13,32 +14,30 @@ import { useState } from "react";
 function App() {
 
     const [recipes, setRecipes] = useState(recipesArray);
-  
-    function deleteRecipe(id) {
-      const newArray = [...recipes];
-      
-      newArray.map((recipe) => {
-        if (id === recipe.id){
-          console.log("found match ", recipe.name);
-          newArray.splice(newArray.indexOf(recipe), 1);
-          console.log(newArray);
-          setRecipes(newArray);
-        }
-      });
-    
-    }
 
   
   return (
     <>
       <Navbar />
-      <div className='page-container'>
+      <div className="page-container">
         <Sidebar />
         <Routes>
-        <Route path="/" element={<HomePage recipes = {recipes} setRecipes={setRecipes} deleteRecipe= {deleteRecipe} />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/recipe/:recipeId" element={<ItemPage recipes={recipes}/>} />
-        <Route path="*" element={<NotFoundPage />} />
+          <Route
+            path="/"
+            element={<HomePage recipes={recipes} setRecipes={setRecipes} />}
+          />
+          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/favorite-recipes"
+            element={
+              <FavoritesPage recipes={recipes} setRecipes={setRecipes} />
+            }
+          />
+          <Route
+            path="/recipe/:recipeId"
+            element={<ItemPage recipes={recipes} />}
+          />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
       <Footer />

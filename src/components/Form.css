@@ -1,23 +1,29 @@
-fieldset {
-    display: flex;
-    border: none;
-    margin-bottom: 0.5rem;
-}
-
 label {
+    font-weight: bold;
     margin-right: 0.3rem;
 }
 
-.instructionsField,
-.ingredientsField {
-    display: flex;
-    flex-direction: column;
+fieldset {
+    border: none;
+    margin-bottom: 0.6rem;
+}
+
+.instructions input {
+    width: 25rem;
+}
+
+.instructions,
+.ingredients {
     width: 30rem;
-    label{
+
+    label,
+    input {
         margin-bottom: 0.2rem;
     }
-    input{
-        margin-bottom: 0.2rem;
+
+    h3 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
     }
 
 }
@@ -26,11 +32,61 @@ form {
     margin-left: 5rem;
     padding-top: 2rem;
 
-    input{
+    input {
         padding: 0.2rem;
+    }
+
+    h2{
+        padding-bottom: 1rem;
     }
 }
 
-label{
-    font-weight: bold;
+.recipe-added {
+    background-color: rgb(204, 241, 207);
+    text-align: center;
+    padding: 0.3rem 0;
+    font-size: 1.2rem;
+}
+
+.add-field,
+.show-form,
+.submit,
+.hide-form {
+    all: unset;
+    border-radius: 5px;
+}
+
+.show-form,
+.submit,
+.hide-form {
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+}
+
+.add-field {
+    margin-top: 0.5rem;
+    padding: 0.2rem 1rem;
+    border-radius: 5px;
+}
+
+.show-form,
+.submit {
+    background-color: rgb(82, 98, 242);
+    color: white;
+}
+
+.show-form {
+    display: block;
+    margin: 1rem auto;
+}
+
+.hide-form,
+.add-field{
+    color: rgb(82, 98, 242);
+    background-color: white;
+    border: 1px, solid, rgb(82, 98, 242);
+}
+
+.hide-form{
+    margin-left: 1rem;
 }

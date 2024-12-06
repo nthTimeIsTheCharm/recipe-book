@@ -1,22 +1,13 @@
 import "./HomePage.css";
-import Card from "../components/Card";
 import Form from "../components/Form"
+import RecipeList from "../components/RecipeList";
 
 function HomePage(props) {
  
-
   return (
     <main>
     <Form recipes={props.recipes} setRecipes={props.setRecipes} />
-    <ul className="recipe-list">
-      {props.recipes.map((recipe, index) => {
-        return (
-         
-            <Card key={index} recipe={recipe} deleteRecipe={props.deleteRecipe} />
-           
-        );
-      })}
-    </ul>
+    <RecipeList recipes={props.recipes} setRecipes={props.setRecipes} condition={"id"}/>
     </main>
   );
 }
