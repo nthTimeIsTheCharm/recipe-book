@@ -1,88 +1,109 @@
-.itemPage-recipe{
-    margin-bottom: 2rem;
-}
-.itemPage-info{
+.itemPage-recipe {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .itemPage-info {
+    padding-left: 50px;
+    padding-top: 25px;
     display: flex;
-    align-items: center;
-    margin: 2rem;
-    max-width: 40rem;
-    
-    h2{
-        margin-top: 1rem;
-    }
-}
-
-.itemPage-details{
-    padding: 1rem 2rem;
-    border-left: 1px solid grey;
-}
-
-.itemPage-ingredients,
-.itemPage-instructions{
-    padding: 0 2rem;
-}
-.itemPage-details{
-   width: 50%;
-   display: inline-block;
-}
-
-.itemPage-title {
-    font-size: 2.5rem;
-}
-
-.itemPage-imageWrapper{
-    width: 50%;
-    min-width: 20rem;
-    margin-right: 2rem;
-}
-
-.itemPage-image{
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .itemPage-imageWrapper {
+    flex: 1 1 40%;
+  }
+  
+  .itemPage-image {
     width: 100%;
+    min-height: 100%;
+    margin-left: 5px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .itemPage-details {
+    flex: 1 1 55%;
+  }
+  
+  .itemPage-title {
+    padding-left: 190px;
+    padding-top: 10px;
+    font-size: 4rem;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  .itemPage-calories, .itemPage-servings {
+   padding-left: 200px;
+    font-size: 2rem;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.6;
+  }
+  
+  .itemPage-ingredients, .itemPage-instructions {
+    font-size: 4rem;
+    color: #444;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  
+  .ul-list, .ol-list {
+    margin: 0;
+    padding: 0 20px;
+  }
+  
+  .ul-list li, .ol-list li {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  
+  
+  p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .calorias, .servings{
+    display: flex;
+  }
+
+  
+.itemPage-lists {
+  display: flex;
+  padding-left: 100px;
+  justify-content: space-between;
+  gap: 20px; 
+  padding-top: 80px;
 }
 
-h2.itemPage-calories,
-h2.itemPage-servings{
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-}
 
-h2.itemPage-ingredients,
-h2.itemPage-instructions{
-    margin-top: 3rem;
-    margin-bottom: 0.5rem;
-}
-
-@media screen and (max-width: 800px) {
-    .itemPage-info {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .itemPage-imageWrapper {
-        margin-right: 0;
-    }
-
-    .itemPage-details{
-        width: 100%;
-        text-align: center;
-        border-left: none;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .itemPage-info {
-        max-width: 100%;
-    }
-}
-
-.ul-list{
-    padding-left: 150px;
-    font-size:larger;
-
+.itemPage-ingredients-container,
+.itemPage-instructions-container {
+  width: 45%; 
 }
 
 
+.ul-list, .ol-list {
+  padding-left: 20px;
+}
+
+.ul-list li, .ol-list li {
+  margin-bottom: 15px;
+}
 .ol-list{
-    padding-left: 150px;
-    font-size: larger;
+  padding-left: 30px;
 }
