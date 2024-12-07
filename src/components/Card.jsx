@@ -20,7 +20,7 @@ function Card(props) {
           <h2>
             {props.recipe.name}{" "}
             <span className="icon">
-              {props.recipe.isCompleted ? "✅" : "❌"}{" "}
+              {props.recipe.isVegetarian ? "🥬" : null}{" "}
             </span>
           </h2>
           <p>

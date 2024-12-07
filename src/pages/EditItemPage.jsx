@@ -15,6 +15,7 @@ const EditItemPage = (props) => {
   const [calories, setCalories] = useState(foundRecipe.calories);
   const [image, setImage] = useState(foundRecipe.image);
   const [servings, setServings] = useState(foundRecipe.servings);
+  const [isVegetarian, setIsVegetarian] = useState(foundRecipe.isVegetarian);
   const [ingredients, setIngredients] = useState(foundRecipe.ingredients);
   const [instructions, setInstructions] = useState(foundRecipe.instructions);
 
@@ -23,6 +24,7 @@ const EditItemPage = (props) => {
   const handleCalories = (e) => setCalories(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
   const handleServings = (e) => setServings(e.target.value);
+  const handleIsVegetarian = () => setIsVegetarian((current) => !current);
   const handleIngredients = (e, index) => {
     const ingredientsCopy = [...ingredients];
     ingredientsCopy[index] = e.target.value;
@@ -40,6 +42,7 @@ const EditItemPage = (props) => {
     foundRecipe.calories = calories;
     foundRecipe.image = image;
     foundRecipe.servings = servings;
+    foundRecipe.isVegetarian = isVegetarian;
     foundRecipe.ingredients = ingredients;
     foundRecipe.instructions = instructions;
     navigate(`/recipe/${recipeId}`);
@@ -95,6 +98,15 @@ const EditItemPage = (props) => {
             placeholderText="servings"
             value={servings}
             onChangeFunc={handleServings}
+          />
+          <Fieldset
+            cssClass="isVegetarian"
+            id="isVegetarian"
+            label="isVegetarian"
+            type="checkbox"
+            isChecked={isVegetarian}
+            value={isVegetarian}
+            onChangeFunc={handleIsVegetarian}
           />
           <fieldset className="ingredients">
             <h3>Ingredients</h3>
