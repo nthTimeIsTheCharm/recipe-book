@@ -19,6 +19,9 @@
   
   .itemPage-imageWrapper {
     flex: 1 1 40%;
+    
+    
+
   }
   
   .itemPage-image {
@@ -32,10 +35,11 @@
   
   .itemPage-details {
     flex: 1 1 55%;
+    img{padding-left: 600px;}
   }
   
   .itemPage-title {
-    padding-left: 190px;
+    padding-left: 170px;
     padding-top: 10px;
     font-size: 4rem;
     color: #222;
@@ -43,7 +47,7 @@
   }
   
   .itemPage-calories, .itemPage-servings {
-   padding-left: 200px;
+   padding-left: 180px;
     font-size: 2rem;
     color: #555;
     margin: 5px 0;
@@ -51,7 +55,7 @@
   }
   
   .itemPage-ingredients, .itemPage-instructions {
-    font-size: 4rem;
+    font-size: 2.5rem;
     color: #444;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -69,7 +73,6 @@
     line-height: 1.6;
     color: #555;
   }
-  
   
   
   p {
@@ -91,6 +94,7 @@
 }
 
 
+
 .itemPage-ingredients-container,
 .itemPage-instructions-container {
   width: 45%; 
@@ -105,5 +109,5 @@
   margin-bottom: 15px;
 }
 .ol-list{
-  padding-left: 30px;
+  padding-left: 40px;
 }
